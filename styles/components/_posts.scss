@@ -1,0 +1,13 @@
+.posts__post {
+  margin-block-end: 1em;
+}
+
+.posts__post-title {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.posts__post-meta {
+  color: var(--color-text-dim, gray);
+  font-size: 0.8rem;
+}

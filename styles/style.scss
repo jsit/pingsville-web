@@ -1,7 +1,3 @@
-body {
-  font-family: sans-serif;
-}
-
-a {
-  color: red !important;
-}
+@import 'base';
+@import 'components/posts';
+@import 'components/top-tags';

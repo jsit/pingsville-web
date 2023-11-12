@@ -15,14 +15,17 @@ export default async function TagPage(_req: Request, ctx: RouteContext) {
             <h1>
               Posts tagged &lsquo;{theTag?.displayName || theTag?.name}&rsquo;
             </h1>
-            <ul>
+            <ul class='posts'>
               {thePosts.map((post) => (
-                <li>
-                  <a href={post.url}>
+                <li class='posts__post'>
+                  <a href={post.url} class='posts__post-title'>
                     {post.title || post.url}
                   </a>
-                  ({post.blog.name}
-                  {post?.pubDate && `, ${post?.pubDate.toLocaleDateString()}`})
+                  <br />
+                  <span class='posts__post-meta'>
+                    {post.blog.name}
+                    {post?.pubDate && `, ${post?.pubDate.toLocaleDateString()}`}
+                  </span>
                 </li>
               ))}
             </ul>

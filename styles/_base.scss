@@ -1,0 +1,23 @@
+:root {
+  --color-primary: hsl(150, 100%, 25%);
+  --color-link: var(--color-primary, blue);
+  --color-link-visited: var(--color-link, purple);
+  --color-text-dim: hsl(150, 5%, 60%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-link, blue);
+}
+
+a:visited {
+  color: var(--color-link-visited, purple);
+}

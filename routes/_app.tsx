@@ -1,5 +1,4 @@
 import { AppProps } from '$fresh/server.ts';
-import PopularTags from '../components/PopularTags.tsx';
 import SiteHeader from '../components/SiteHeader.tsx';
 
 export default function App({ Component }: AppProps) {
