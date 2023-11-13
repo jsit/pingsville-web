@@ -1,0 +1,11 @@
+.page-wrapper {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 2rem;
+
+  @media screen and (min-width: 800px) {
+    display: grid;
+    column-gap: 4rem;
+    grid-template-columns: 2fr 1fr;
+  }
+}

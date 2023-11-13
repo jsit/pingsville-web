@@ -1,14 +1,11 @@
-import PopularTags from '../components/PopularTags.tsx';
-
 export default function SiteHeader() {
   return (
     <>
-      <header>
-        <p>
+      <header class='site-header'>
+        <p class='site-header__title'>
           <a href='/'>Pingsville</a>
         </p>
       </header>
-      <PopularTags />
     </>
   );
 }

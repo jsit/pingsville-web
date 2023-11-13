@@ -1,25 +1,25 @@
 .top-tags {
   display: flex;
   flex-wrap: wrap;
-  column-gap: 1em;
-  row-gap: 0.5em;
-  justify-content: center;
+  gap: 0.5em;
+  justify-content: flex-start;
 
   /* grid-template-columns: repeat(4, 1fr); */
   padding: 0;
   list-style-type: none;
-  align-items: start;
+  align-items: flex-start;
   justify-items: center;
 }
 
 .top-tags__tag {
   --color-link: white;
-  --color-link-visited: white;
 
   line-height: 1;
-  background: var(--color-primary);
+  background-color: var(--color-secondary);
   padding: 0.2em 0.5em;
   border-radius: 0.2em;
+
+  // background-color: lch(50% 130 var(--hue));
 
   a {
     text-decoration: none;

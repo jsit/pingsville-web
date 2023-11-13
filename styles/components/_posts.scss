@@ -1,3 +1,7 @@
+.posts {
+  list-style-type: none;
+}
+
 .posts__post {
   margin-block-end: 1em;
 }
@@ -5,6 +9,8 @@
 .posts__post-title {
   font-weight: 700;
   text-decoration: none;
+  line-height: 1.2;
+  font-size: var(--font-size-lg);
 }
 
 .posts__post-meta {

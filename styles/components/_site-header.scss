@@ -1,0 +1,19 @@
+.site-header {
+  --color-link: white;
+
+  background-color: var(--color-primary);
+  color: white;
+  padding-block: 3rem;
+  margin-block-end: 3rem;
+}
+
+.site-header__title {
+  text-align: center;
+  font-weight: 400;
+  font-size: clamp(var(--font-size-xl), 10vw, var(--font-size-xxl));
+  font-family: 'Dela Gothic One', sans-serif;
+
+  a {
+    text-decoration: none;
+  }
+}
