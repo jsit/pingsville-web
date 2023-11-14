@@ -23,14 +23,30 @@ export default async function TagPage(_req: Request, ctx: RouteContext) {
                       {post.title || post.url}
                     </a>
                   </h3>
-                  <p class='posts__post-meta'>
-                    {post.blog.name}
-                    {post?.pubDate && `, ${post?.pubDate.toLocaleDateString()}`}
-                  </p>
+                  <div class='posts__post-meta'>
+                    <span>
+                      {post.blog.name}
+                      {post?.pubDate &&
+                        `, ${post?.pubDate.toLocaleDateString()}`}
+                    </span>
+                  </div>
                   {post.description && (
                     <p>
                       {post.description}
                     </p>
+                  )}
+                  {false && post.tags && (
+                    <ul class='posts__post-tags'>
+                      {post.tags?.map((tag) => {
+                        return (
+                          <span class='tag tag--dim'>
+                            <a href={`/tag/${tag.name}`}>
+                              {tag.name}
+                            </a>
+                          </span>
+                        );
+                      })}
+                    </ul>
                   )}
                 </li>
               ))}

@@ -11,7 +11,7 @@ export default function PopularTags() {
         <ul class='top-tags'>
           {topTags.map((tag) => {
             return (
-              <li class='top-tags__tag'>
+              <li class='tag'>
                 <a href={`/tag/${tag.tagData[0].name}`}>
                   {tag.tagData[0].displayName || tag.tagData[0].name}
                 </a>

@@ -1,0 +1,25 @@
+.tag {
+  --color-link: white;
+
+  line-height: 1;
+
+  // background-color: lch(50% 130 var(--hue));
+
+  a {
+    display: block;
+    text-decoration: none;
+    background-color: var(--color-secondary);
+    padding: 0.2em 0.5em;
+    border-radius: 0.2em;
+  }
+}
+
+.tag--dim {
+  a {
+    background-color: lightgray;
+
+    &:hover {
+      background-color: var(--color-secondary);
+    }
+  }
+}

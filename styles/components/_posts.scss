@@ -7,7 +7,7 @@
 }
 
 .posts__post-title {
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
   line-height: 1.2;
   font-size: var(--font-size-lg);
@@ -15,5 +15,12 @@
 
 .posts__post-meta {
   color: var(--color-text-dim, gray);
+  font-size: 0.8rem;
+}
+
+.posts__post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
   font-size: 0.8rem;
 }

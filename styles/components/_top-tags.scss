@@ -10,18 +10,3 @@
   align-items: flex-start;
   justify-items: center;
 }
-
-.top-tags__tag {
-  --color-link: white;
-
-  line-height: 1;
-  background-color: var(--color-secondary);
-  padding: 0.2em 0.5em;
-  border-radius: 0.2em;
-
-  // background-color: lch(50% 130 var(--hue));
-
-  a {
-    text-decoration: none;
-  }
-}
