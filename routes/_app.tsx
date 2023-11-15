@@ -8,7 +8,11 @@ export default function App({ Component }: AppProps) {
       <head>
         <link rel='stylesheet' href='https://use.typekit.net/vhk4dug.css' />
         <link rel='preconnect' href='https://fonts.googleapis.com' />
-        <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+        <link
+          rel='preconnect'
+          href='https://fonts.gstatic.com'
+          crossorigin='true'
+        />
         <link
           href='https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap'
           rel='stylesheet'

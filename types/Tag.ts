@@ -1,4 +1,4 @@
-import type { ObjectId } from "../types/index";
+import type { ObjectId } from '../types/index.ts';
 
 export interface Tag {
   _id: ObjectId;

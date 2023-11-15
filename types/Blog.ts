@@ -1,4 +1,4 @@
-import { ObjectId } from './index';
+import { ObjectId } from './index.ts';
 
 export interface Blog {
   _id: ObjectId;
