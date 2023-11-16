@@ -1,5 +1,5 @@
 import { blogPosts, tags } from './client.ts';
-import { ObjectId } from '../types/index.ts';
+import { ObjectId, Tag } from '../types/index.ts';
 
 type TopTags = {
   _id: ObjectId;
@@ -63,6 +63,6 @@ export const getTopTags = async (
   ]);
 };
 
-export const getTagObject = (tag: string) => {
+export const getTagObject = (tag: string): Promise<Tag> => {
   return tags.findOne({ name: tag });
 };
