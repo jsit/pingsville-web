@@ -19,7 +19,7 @@ export default async function TagPage(_req: Request, ctx: RouteContext) {
               {thePosts.map((post) => (
                 <li class='posts__post'>
                   <h3 class='posts__post-title'>
-                    <a href={post.url}>
+                    <a href={post.url} rel="nofollow">
                       {post.title || post.url}
                     </a>
                   </h3>
