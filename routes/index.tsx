@@ -1,6 +1,16 @@
-export default function Home() {
+import { getPosts } from "../lib/posts.ts";
+import PostsList from "../components/PostsList.tsx";
+
+export default async function Home() {
+  const thePosts = await getPosts();
+
   return (
-    <main>
-    </main>
+    <>
+      <h1>
+        Recent Posts
+      </h1>
+
+      <PostsList posts={thePosts} />
+    </>
   );
 }
