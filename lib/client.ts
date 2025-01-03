@@ -7,18 +7,24 @@ await load({ export: true });
 // // Local
 // const client = new MongoClient('mongodb://127.0.0.1:27017');
 
-const client = new MongoClient({
-  endpoint: `https://data.mongodb-api.com/app/${
-    Deno.env.get('ATLAS_APP_ID')
-  }/endpoint/data/v1`,
-  dataSource: Deno.env.get('ATLAS_CLUSTER') || '',
-  auth: {
-    apiKey: Deno.env.get('ATLAS_API_KEY') || '',
-  },
-});
+let client;
 
-const db = client.database(Deno.env.get('ATLAS_DB') || '');
+try {
+  client = new MongoClient({
+    endpoint: `https://data.mongodb-api.com/app/${
+      Deno.env.get('ATLAS_APP_ID')
+    }/endpoint/data/v1`,
+    dataSource: Deno.env.get('ATLAS_CLUSTER') || '',
+    auth: {
+      apiKey: Deno.env.get('ATLAS_API_KEY') || '',
+    },
+  });
+} catch (error) {
+  console.error(error);
+}
 
-export const blogs = db.collection<Blog>('blogs');
-export const blogPosts = db.collection<BlogPost>('blogPosts');
-export const tags = db.collection<Tag>('tags');
+const db = client?.database(Deno.env.get('ATLAS_DB') || '');
+
+export const blogs = db?.collection<Blog>('blogs');
+export const blogPosts = db?.collection<BlogPost>('blogPosts');
+export const tags = db?.collection<Tag>('tags');
