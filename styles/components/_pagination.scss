@@ -1,0 +1,9 @@
+.pagination {}
+
+.pagination__list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  column-gap: 1ch;
+  justify-content: center;
+}
