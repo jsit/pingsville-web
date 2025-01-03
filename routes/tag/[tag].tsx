@@ -1,7 +1,7 @@
-import { RouteContext } from "$fresh/server.ts";
-import { getPostsByTag } from "../../lib/posts.ts";
-import { getTagObject } from "../../lib/tags.ts";
-import PostsList from "../../components/PostsList.tsx";
+import { RouteContext } from '$fresh/server.ts';
+import { getPostsByTag } from '../../lib/posts.ts';
+import { getTagObject } from '../../lib/tags.ts';
+import PostsList from '../../components/PostsList.tsx';
 
 export default async function TagPage(_req: Request, ctx: RouteContext) {
   const { tag } = ctx.params;
