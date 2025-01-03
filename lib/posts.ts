@@ -7,21 +7,34 @@ export const getPostsByTag = async (
 ): Promise<BlogPost[]> => {
   const theTag = await getTagObject(tag);
 
-  const thePosts = theTag && await blogPosts.find({ 'tags.id': theTag._id });
+  const thePosts = theTag && blogPosts.aggregate<BlogPost>(
+    [
+      {
+        $sort: {
+          pubDate: -1,
+        },
+      },
+      {
+        $match: {
+          'tags.id': theTag._id,
+        },
+      },
+    ],
+  );
 
-  const sortedPosts = thePosts.sort((a, b) => {
-    return (a.pubDate && b.pubDate && a.pubDate > b.pubDate) ? -1 : 1;
-  });
-
-  return sortedPosts;
+  return thePosts;
 };
 
-export const getPosts = async (): Promise<BlogPost[]> => {
-  const thePosts = await blogPosts.find();
+export const getPosts = (): Promise<BlogPost[]> => {
+  const thePosts = blogPosts.aggregate<BlogPost>(
+    [
+      {
+        $sort: {
+          pubDate: -1,
+        },
+      },
+    ],
+  );
 
-  const sortedPosts = thePosts.sort((a, b) => {
-    return (a.pubDate && b.pubDate && a.pubDate > b.pubDate) ? -1 : 1;
-  });
-
-  return sortedPosts;
+  return thePosts;
 };
