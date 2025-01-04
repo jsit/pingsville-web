@@ -1,11 +1,12 @@
 export default ({
   totalItems,
   currentPage,
+  perPage,
 }: {
   totalItems: number;
   currentPage: number;
+  perPage: number;
 }) => {
-  const perPage = parseInt(Deno.env.get('POSTS_PER_PAGE') || '8');
   const totalPages = Math.ceil(totalItems / perPage);
 
   return totalPages

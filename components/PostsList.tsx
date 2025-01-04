@@ -1,12 +1,9 @@
 import { BlogPost } from '../types/index.ts';
 
-export default ({ posts, page }: { posts: BlogPost[]; page?: number }) => {
-  const perPage = parseInt(Deno.env.get('POSTS_PER_PAGE') || '8');
-  const thePosts = posts.splice(((page || 1) - 1) * perPage, perPage);
-
+export default ({ posts }: { posts: BlogPost[] }) => {
   return (
     <ul class='posts'>
-      {thePosts.map((post) => (
+      {posts.map((post) => (
         <li class='posts__post'>
           <h3 class='posts__post-title'>
             <a href={post.url} rel='nofollow'>
