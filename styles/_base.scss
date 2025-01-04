@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 :root {
   --color-primary: hsl(150, 100%, 25%);
   --color-primary: lch(40% 100 150);
@@ -5,11 +7,11 @@
   --color-link: var(--color-primary, blue);
   --color-text-dim: hsl(150, 5%, 60%);
 
-  --font-size-sm: 0.8rem;
+  --font-size-sm: #{1rem / 1.25};
   --font-size-md: 1rem;
-  --font-size-lg: 1.5625rem;
-  --font-size-xl: 2.44rem;
-  --font-size-xxl: 3.8125rem;
+  --font-size-lg: #{math.pow(1.25, 2)}rem;
+  --font-size-xl: #{math.pow(1.25, 4)}rem;
+  --font-size-xxl: #{math.pow(1.25, 6)}rem;
 }
 
 * {
