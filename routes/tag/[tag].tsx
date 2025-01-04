@@ -11,7 +11,7 @@ export default async function TagPage(req: Request, ctx: RouteContext) {
   const { tag: tagName } = ctx.params;
 
   const { posts, total } = tagName
-    ? await getPosts({ tagName, offset: (page - 1) * perPage })
+    ? await getPosts({ tagName, offset: (page - 1) * perPage, count: perPage })
     : {};
 
   const tag = tagName ? await getTagObject(tagName) : null;
@@ -22,7 +22,8 @@ export default async function TagPage(req: Request, ctx: RouteContext) {
         ? (
           <>
             <h1>
-              {total} posts tagged &lsquo;{tag?.displayName || tag?.name}&rsquo;
+              {total.toLocaleString()}{' '}
+              posts tagged &lsquo;{tag?.displayName || tag?.name}&rsquo;
             </h1>
 
             <PostsList posts={posts} />
