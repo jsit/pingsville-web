@@ -1,6 +1,6 @@
-import { getPosts } from '../lib/posts.ts';
-import PostsList from '../components/PostsList.tsx';
-import Pagination from '../components/Pagination.tsx';
+import { getPosts } from '@lib/posts.ts';
+import PostsList from '@components/PostsList.tsx';
+import Pagination from '@components/Pagination.tsx';
 
 export default async function Home(req: Request) {
   const url = new URL(req.url);

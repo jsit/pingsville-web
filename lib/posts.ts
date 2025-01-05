@@ -1,6 +1,6 @@
-import { blogPosts } from './client.ts';
-import { getTagObject } from './tags.ts';
-import { BlogPost } from '../types/index.ts';
+import { BlogPost } from '@customTypes/index.ts';
+import { blogPosts } from '@lib/client.ts';
+import { getTagObject } from '@lib/tags.ts';
 
 const perPage = parseInt(Deno.env.get('POSTS_PER_PAGE') || '8');
 

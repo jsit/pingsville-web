@@ -1,4 +1,4 @@
-import { getTopTags } from '../lib/tags.ts';
+import { getTopTags } from '@lib/tags.ts';
 const count = 24;
 const days = 3;
 const topTags = await getTopTags({ count, days });

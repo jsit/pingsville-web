@@ -1,8 +1,8 @@
 import { RouteContext } from '$fresh/server.ts';
-import { getPosts } from '../../lib/posts.ts';
-import { getTagObject } from '../../lib/tags.ts';
-import PostsList from '../../components/PostsList.tsx';
-import Pagination from '../../components/Pagination.tsx';
+import { getPosts } from '@lib/posts.ts';
+import { getTagObject } from '@lib/tags.ts';
+import PostsList from '@components/PostsList.tsx';
+import Pagination from '@components/Pagination.tsx';
 
 export default async function TagPage(req: Request, ctx: RouteContext) {
   const url = new URL(req.url);

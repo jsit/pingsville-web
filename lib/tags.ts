@@ -1,5 +1,5 @@
-import { blogPosts, tags } from './client.ts';
-import { ObjectId, Tag } from '../types/index.ts';
+import { blogPosts, tags } from '@lib/client.ts';
+import { ObjectId, Tag } from '@customTypes/index.ts';
 
 type TopTags = {
   _id: ObjectId;

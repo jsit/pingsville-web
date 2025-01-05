@@ -1,4 +1,4 @@
-import type { ObjectId } from './index.ts';
+import type { ObjectId } from '@customTypes/index.ts';
 
 export interface BlogPostTag {
   id: ObjectId;

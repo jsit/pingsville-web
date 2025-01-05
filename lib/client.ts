@@ -1,6 +1,7 @@
 import { load } from 'https://deno.land/std@0.206.0/dotenv/mod.ts';
 import { MongoClient } from 'https://deno.land/x/atlas_sdk@v1.1.1/mod.ts';
-import type { Blog, BlogPost, Tag } from '../types/index.ts';
+
+import type { Blog, BlogPost, Tag } from '@customTypes/index.ts';
 
 await load({ export: true });
 

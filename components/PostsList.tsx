@@ -1,4 +1,4 @@
-import { BlogPost } from '../types/index.ts';
+import { BlogPost } from '@customTypes/index.ts';
 
 export default ({ posts }: { posts: BlogPost[] }) => {
   return (
