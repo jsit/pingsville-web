@@ -63,6 +63,12 @@ export const getTopTags = async (
   ]);
 };
 
-export const getTagObject = (tag: string): Promise<Tag> => {
-  return tags.findOne({ name: tag });
+export const getTagObject = (
+  { tagName, tagId }: { tagName?: string; tagId?: ObjectId },
+): Promise<Tag> => {
+  if (tagId) {
+    return tags.findOne({ _id: tagId });
+  } else {
+    return tags.findOne({ name: tagName });
+  }
 };

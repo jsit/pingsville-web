@@ -1,6 +1,8 @@
+import { PostsListProps } from '@components/PostsList.tsx';
 import { BlogPost } from '@customTypes/index.ts';
 import { blogPosts } from '@lib/client.ts';
 import { getTagObject } from '@lib/tags.ts';
+import { getBlogById } from '@lib/blogs.ts';
 
 const perPage = parseInt(Deno.env.get('POSTS_PER_PAGE') || '8');
 
@@ -15,7 +17,7 @@ export const getPosts = async (
 ): Promise<{ total: number; posts: BlogPost[] }> => {
   const { count, offset, tagName } = params || {};
 
-  const tag = tagName && await getTagObject(tagName);
+  const tag = tagName && await getTagObject({ tagName: tagName });
 
   await blogPosts.countDocuments();
 
@@ -65,4 +67,34 @@ export const getPosts = async (
   const { total, posts } = results[0];
 
   return { total: total[0].count, posts: posts };
+};
+
+export const postsToPostsListProps = async (
+  posts: BlogPost[],
+): Promise<PostsListProps[]> => {
+  return await Promise.all(
+    posts.map(async (post) => {
+      const blogUrl = await getBlogById(post.blog.id).then((blog) => blog.url);
+
+      const tagLinks = post.tags
+        ? await Promise.all(
+          post.tags?.map(async (blogPostTag) => {
+            console.log('blogPostTag: ', blogPostTag);
+            const tagObject = await getTagObject({ tagId: blogPostTag.id });
+
+            return tagObject && {
+              name: tagObject.name,
+              displayName: tagObject.displayName,
+            };
+          }),
+        )
+        : [];
+
+      return {
+        ...post,
+        blogUrl: blogUrl,
+        tagLinks: tagLinks,
+      };
+    }),
+  );
 };

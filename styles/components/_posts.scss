@@ -16,6 +16,14 @@
 .posts__post-meta {
   color: var(--color-text-dim, gray);
   font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.posts__post-icon {
+  margin-inline-end: 0.5ch;
+  width: 1rem;
+  height: 1rem;
 }
 
 .posts__post-tags {

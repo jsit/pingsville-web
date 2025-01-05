@@ -16,10 +16,12 @@
 
 .tag--dim {
   a {
-    background-color: lightgray;
+    background-color: #eee;
+    color: #6d6d6d;
 
     &:hover {
       background-color: var(--color-secondary);
+      color: white;
     }
   }
 }

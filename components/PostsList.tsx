@@ -1,6 +1,14 @@
 import { BlogPost } from '@customTypes/index.ts';
 
-export default ({ posts }: { posts: BlogPost[] }) => {
+export interface PostsListProps extends BlogPost {
+  blogUrl?: string;
+  tagLinks?: {
+    name: string;
+    displayName: string;
+  }[];
+}
+
+export default ({ posts }: { posts: PostsListProps[] }) => {
   return (
     <ul class='posts'>
       {posts.map((post) => (
@@ -12,6 +20,15 @@ export default ({ posts }: { posts: BlogPost[] }) => {
           </h3>
 
           <div class='posts__post-meta'>
+            {post.blogUrl && (
+              <img
+                alt=''
+                class='posts__post-icon'
+                src={`https://www.google.com/s2/favicons?domain=${post.blogUrl}&sz=32`}
+                width='16'
+                height='16'
+              />
+            )}
             <span>
               {post.blog.name}
 
@@ -36,12 +53,12 @@ export default ({ posts }: { posts: BlogPost[] }) => {
             </p>
           )}
 
-          {false && post.tags && (
+          {post.tagLinks && (
             <ul class='posts__post-tags'>
-              {post.tags?.map((tag) => (
+              {post.tagLinks?.map((tagLink) => (
                 <span class='tag tag--dim'>
-                  <a href={`/tag/${tag.name}`}>
-                    {tag.name}
+                  <a href={`/tag/${tagLink.name}`}>
+                    {tagLink.displayName}
                   </a>
                 </span>
               ))}

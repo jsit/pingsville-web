@@ -1,4 +1,6 @@
-import { getPosts } from '@lib/posts.ts';
+import { PostsListProps } from '@components/PostsList.tsx';
+import { getPosts, postsToPostsListProps } from '@lib/posts.ts';
+
 import PostsList from '@components/PostsList.tsx';
 import Pagination from '@components/Pagination.tsx';
 
@@ -11,13 +13,17 @@ export default async function Home(req: Request) {
     count: perPage,
   });
 
+  const postsListPosts: PostsListProps[] = posts
+    ? await postsToPostsListProps(posts)
+    : [];
+
   return (
     <>
       <h1>
         All Posts ({total.toLocaleString()})
       </h1>
 
-      <PostsList posts={posts} />
+      <PostsList posts={postsListPosts} />
 
       <Pagination
         totalItems={total}
