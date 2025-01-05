@@ -48,7 +48,7 @@ export default ({ posts }: { posts: PostsListProps[] }) => {
           </div>
 
           {post.description && (
-            <p>
+            <p class='posts__post-description'>
               {post.description}
             </p>
           )}
