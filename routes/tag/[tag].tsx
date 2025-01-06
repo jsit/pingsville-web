@@ -25,7 +25,7 @@ export default async function TagPage(req: Request, ctx: RouteContext) {
       {posts && total
         ? (
           <>
-            <h1>
+            <h1 class='page-title'>
               {total.toLocaleString()}{' '}
               posts tagged &lsquo;{tag?.displayName || tag?.name}&rsquo;
             </h1>
@@ -39,7 +39,11 @@ export default async function TagPage(req: Request, ctx: RouteContext) {
             />
           </>
         )
-        : <h1>There are no posts tagged &lsquo;{tag}&rsquo;</h1>}
+        : (
+          <h1 class='page-title'>
+            There are no posts tagged &lsquo;{tag}&rsquo;
+          </h1>
+        )}
     </>
   );
 }

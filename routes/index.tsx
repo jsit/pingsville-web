@@ -19,7 +19,7 @@ export default async function Home(req: Request) {
 
   return (
     <>
-      <h1>
+      <h1 class='page-title'>
         All Posts ({total.toLocaleString()})
       </h1>
 
