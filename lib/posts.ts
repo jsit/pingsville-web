@@ -79,7 +79,6 @@ export const postsToPostsListProps = async (
       const tagLinks = post.tags
         ? await Promise.all(
           post.tags?.map(async (blogPostTag) => {
-            console.log('blogPostTag: ', blogPostTag);
             const tagObject = await getTagObject({ tagId: blogPostTag.id });
 
             return tagObject && {

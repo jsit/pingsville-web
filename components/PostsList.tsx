@@ -55,13 +55,15 @@ export default ({ posts }: { posts: PostsListProps[] }) => {
 
           {post.tagLinks && (
             <ul class='posts__post-tags'>
-              {post.tagLinks?.map((tagLink) => (
-                <span class='tag tag--dim'>
-                  <a href={`/tag/${tagLink.name}`}>
-                    {tagLink.displayName}
-                  </a>
-                </span>
-              ))}
+              {post.tagLinks?.map((tagLink) =>
+                tagLink?.name && (
+                  <span class='tag tag--dim'>
+                    <a href={`/tag/${tagLink.name}`}>
+                      {tagLink.displayName}
+                    </a>
+                  </span>
+                )
+              )}
             </ul>
           )}
         </li>
